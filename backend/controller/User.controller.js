@@ -11,7 +11,7 @@ const register = async (req, res) => {
     }
 
     const user = await User.findOne({ email });
-    
+
     if (user) {
       return res.status(400).json({ message: "User already exists", success: false });
     }
@@ -39,7 +39,6 @@ const register = async (req, res) => {
   }
 };
 
-// Login Controller
 const login = async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -63,7 +62,7 @@ const login = async (req, res) => {
       { expiresIn: "1d" }
     );
 
-    // ✅ Set the token in a cookie
+    
     res.cookie("token", token, {
       httpOnly: true,
       secure: false, // Change to true in production (HTTPS)
@@ -86,7 +85,7 @@ const login = async (req, res) => {
   }
 };
 
-// Logout Controller
+
 const logout = async (req, res) => {
   return res
     .clearCookie("token", {
