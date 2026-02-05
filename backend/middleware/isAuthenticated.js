@@ -2,7 +2,7 @@ const jwt = require("jsonwebtoken");
 
 const isAuthenticated = (req, res, next) => {
   try {
-    // Extract the token from Authorization header
+   
     const authHeader = req.headers.authorization;
 
     if (!authHeader || !authHeader.startsWith("Bearer ")) {
@@ -22,6 +22,7 @@ const isAuthenticated = (req, res, next) => {
     req.user = decoded;
 
     next();
+    
   } catch (error) {
     console.error("Token verification failed:", error);
     return res.status(401).json({ message: "Invalid token", success: false });
