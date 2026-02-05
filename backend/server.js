@@ -1,9 +1,15 @@
 const express=require("express");
+
 const colors=require("colors");
+
 const cors=require("cors");
+
 const cookieParser=require("cookie-parser");
+
 const dotenv=require("dotenv");
+
 const connectDB=require("./config/db");
+
 const authRoutes=require("./routes/authRoutes");
 
 dotenv.config();

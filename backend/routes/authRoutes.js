@@ -4,7 +4,9 @@ const isAuthenticated = require("../middleware/isAuthenticated");
 const router = express.Router();
 
 router.post("/register", register);
+
 router.post("/login", login);
+
 router.get("/logout",logout);
 
 
